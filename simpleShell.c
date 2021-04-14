@@ -8,9 +8,7 @@
  */
 int main(int argc, char *argv[], char **environ)
 {
-	(void)argv;
-
 	if (argc == 1)
-		interactiveMode(environ);
+		interactiveMode(environ, argv[0]);
 	return (0);
 }

@@ -3,9 +3,11 @@
  *getCommand - Search if the command exist
  *@command: The command typed for the user
  *@environ: environment
+ *@filename: name of the file
+ *@iterator: Counted
  *Return: address of the command or NULL
  */
-char *getCommand(char *command, char **environ)
+char *getCommand(char *command, char **environ, char *filename, int iterator)
 {
 	char *path, *token, *concatanated;
 	struct stat buf;
@@ -42,7 +44,7 @@ char *getCommand(char *command, char **environ)
 	}
 	else
 	{
-		printf("./hsh: No such file or directory\n");
+		printf("%s: %i: %s: not found\n", filename, iterator, command);
 		return (NULL);
 	}
 }
