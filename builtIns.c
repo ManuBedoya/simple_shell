@@ -23,7 +23,10 @@ int isBuiltIn(char *builtin, char **environ)
 	{
 		if (builtin[0] == 'e' && builtin[1] == 'x' && builtin[2] == 'i' &&
 			builtin[3] == 't')
+		{
+			free(builtin);
 			exit(0);
+		}
 	}
 	return (-1);
 }
