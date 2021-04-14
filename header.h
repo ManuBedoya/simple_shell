@@ -1,5 +1,6 @@
 #ifndef HEADER_H
 #define HEADER_H
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
@@ -9,9 +10,8 @@
 #include <sys/stat.h>
 
 char *foundCommand(char *concatanated, int lenCommand);
-int isBuiltIn(char *builtin);
-char *getCommand(char *command);
-void tokenize(char *line);
-void interactiveMode(void);
-void non_interactive(void);
+int isBuiltIn(char *builtin, char **environ);
+char *getCommand(char *command, char **environ);
+void tokenize(char *line, char **environ);
+void interactiveMode(char **environ);
 #endif

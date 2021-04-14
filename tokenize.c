@@ -1,14 +1,12 @@
 #include "header.h"
 /**
- *
- *
+ *tokenize - separate the line typed by user an execute
+ *@line: line typed by user
+ *@environ: environment
  */
-void tokenize(char *line)
+void tokenize(char *line, char **environ)
 {
-	extern char **environ;
-	int status;
-	pid_t son;
-	char *token , *aux, *arg[1024];
+	char *token, *arg[1024];
 	size_t i, nArgs = 1;
 
 	for (i = 0; line[i]; i++)
@@ -19,7 +17,7 @@ void tokenize(char *line)
 	line[strlen(line) - 1] = '\0';
 	if (nArgs == 1)
 	{
-		arg[0] = getCommand(line);
+		arg[0] = getCommand(line, environ);
 	}
 	else
 	{
@@ -30,7 +28,7 @@ void tokenize(char *line)
 			arg[i++] = token;
 			token = strtok(NULL, " ");
 		}
-		arg[0] = getCommand(arg[0]);
+		arg[0] = getCommand(arg[0], environ);
 	}
 	execve(arg[0], arg, environ);
 }

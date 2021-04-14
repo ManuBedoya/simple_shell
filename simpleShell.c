@@ -3,15 +3,14 @@
  *main - entry point
  *Return: 0 always
  *@argc: Number of arguments
+ *@argv: Array of Arguments
+ *@environ: environment
  */
-int main(int argc)
+int main(int argc, char *argv[], char **environ)
 {
-	(void)argc;
+	(void)argv;
 
 	if (argc == 1)
-		interactiveMode();
-
-	else
-		non_interactive();
+		interactiveMode(environ);
 	return (0);
 }
