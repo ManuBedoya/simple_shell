@@ -1,13 +1,14 @@
 #include "header.h"
 /**
- *tokenize - separate the line typed by user an execute
- *@line: line typed by user
- *@environ: environment
- */
-void tokenize(char *line, char **environ)
+*tokenize - separate the line typed by user an execute
+*@line: line typed by user
+*@environ: environment
+*/
+void tokenize(char *line, char environ)
 {
 	char *token, *arg[1024];
 	size_t i, nArgs = 1;
+	int value;
 
 	for (i = 0; line[i]; i++)
 	{
@@ -30,6 +31,10 @@ void tokenize(char *line, char **environ)
 		}
 		arg[0] = getCommand(arg[0], environ);
 	}
-	execve(arg[0], arg, environ);
-	free(arg[0]);
+	value = execve(arg[0], arg, environ);
+	if (value == -1)
+	{
+		free(arg[0]);
+		exit(EXIT_FAILURE);
+	}
 }
