@@ -44,7 +44,7 @@ char *getCommand(char *command, char **environ, char *filename, int iterator)
 	}
 	else
 	{
-		printf("%s: %i: %s: not found\n", filename, iterator, command);
+		_printf("%s: %i: %s: not found\n", filename, iterator, command);
 		return (NULL);
 	}
 }
