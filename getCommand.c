@@ -21,12 +21,12 @@ char *getCommand(char *command, char **environ)
 	token = strtok(NULL, ":");
 	while (token != NULL)
 	{
-		lenToken = strlen(token);
-		lenCommand = strlen(command);
+		lenToken = _strlen(token);
+		lenCommand = _strlen(command);
 		concatanated = malloc(sizeof(char) * (lenToken + lenCommand + 1));
-		strcpy(concatanated, token);
-		strcat(concatanated, "/");
-		strcat(concatanated, command);
+		_strcpy(concatanated, token);
+		_strcat(concatanated, "/");
+		_strcat(concatanated, command);
 
 		if (stat(concatanated, &buf) == 0)
 		{
@@ -69,12 +69,11 @@ char *foundCommand(char *concatanated, int lenCommand)
 		token = strtok(NULL, "/");
 		nDirs--;
 	}
-	lenToken = strlen(nameDirs[0]) + strlen(nameDirs[1]);
+	lenToken = _strlen(nameDirs[0]) + _strlen(nameDirs[1]);
 	concatanated = malloc(sizeof(char) * lenCommand * lenToken + 2);
 	concatanated[0] = '/';
-	strcat(concatanated, nameDirs[1]);
-	strcat(concatanated, "/");
-	strcat(concatanated, nameDirs[0]);
-	printf("command: %s\n", concatanated);
+	_strcat(concatanated, nameDirs[1]);
+	_strcat(concatanated, "/");
+	_strcat(concatanated, nameDirs[0]);
 	return (concatanated);
 }

@@ -13,11 +13,13 @@ void interactiveMode(char **environ)
 	while (1)
 	{
 		line = NULL;
-		lineSize = 0;
-		write(STDOUT_FILENO, prompt, strlen(prompt));
+		write(STDOUT_FILENO, prompt, _strlen(prompt));
 		value = getline(&line, &lineSize, stdin);
 		if (value == EOF)
+		{
+			free(line);
 			exit(0);
+		}
 		if (isBuiltIn(line, environ) == -1)
 		{
 			son = fork();
@@ -28,6 +30,6 @@ void interactiveMode(char **environ)
 			else
 				printf("error");
 		}
+		free(line);
 	}
-	free(line);
 }

@@ -14,4 +14,7 @@ int isBuiltIn(char *builtin, char **environ);
 char *getCommand(char *command, char **environ);
 void tokenize(char *line, char **environ);
 void interactiveMode(char **environ);
+int _strlen(char *s);
+char *_strcat(char *dest, char *src);
+char *_strcpy(char *dest, char *src);
 #endif

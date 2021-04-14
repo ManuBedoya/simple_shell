@@ -14,7 +14,7 @@ void tokenize(char *line, char **environ)
 		if (line[i] == ' ')
 			nArgs++;
 	}
-	line[strlen(line) - 1] = '\0';
+	line[_strlen(line) - 1] = '\0';
 	if (nArgs == 1)
 	{
 		arg[0] = getCommand(line, environ);
@@ -31,4 +31,5 @@ void tokenize(char *line, char **environ)
 		arg[0] = getCommand(arg[0], environ);
 	}
 	execve(arg[0], arg, environ);
+	free(arg[0]);
 }
