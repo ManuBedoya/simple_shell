@@ -11,8 +11,8 @@
 
 char *foundCommand(char *concatanated, int lenCommand);
 int isBuiltIn(char *builtin, char **environ);
-char *getCommand(char *command, char **environ, char *filename, int iterator);
-void tokenize(char *line, char **environ, char *filename, int iterator);
+char *getCommand(char *command, char **environ, char *filename, int *iterator);
+void tokenize(char *line, char **environ, char *filename, int *iterator);
 void interactiveMode(char **environ, char *filename);
 int _strlen(char *s);
 char *_strcat(char *dest, char *src);

@@ -6,7 +6,7 @@
 *@filename: name of the file
 *@iterator: counted
 */
-void tokenize(char *line, char **environ, char *filename, int iterator)
+void tokenize(char *line, char **environ, char *filename, int *iterator)
 {
 	char *token, *arg[1024];
 	size_t i, nArgs = 1;
@@ -38,7 +38,7 @@ void tokenize(char *line, char **environ, char *filename, int iterator)
 	{
 		if(arg[0] == NULL)
 			exit(EXIT_FAILURE);
-		value = execve(arg[0], arg, environ);
+		value = execve(arg[0], arg, NULL);
 		if (value == -1)
 			exit(EXIT_FAILURE);
 	}

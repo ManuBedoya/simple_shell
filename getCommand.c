@@ -7,7 +7,7 @@
  *@iterator: Counted
  *Return: address of the command or NULL
  */
-char *getCommand(char *command, char **environ, char *filename, int iterator)
+char *getCommand(char *command, char **environ, char *filename, int *iterator)
 {
 	char path[3000], *token, *concatanated;
 	struct stat buf;
@@ -45,8 +45,8 @@ char *getCommand(char *command, char **environ, char *filename, int iterator)
 	}
 	else
 	{
-		free(concatanated);
-		_printf("%s: %i: %s: not found\n", filename, iterator, command);
+		*iterator = *iterator + 1;
+		_printf("%s: %i: %s: not found\n", filename, *iterator, command);
 		return (NULL);
 	}
 }
