@@ -54,7 +54,7 @@ int print_integer(va_list i)
  * conversion_specifiers - convert the specifer according to the case
  * @c: is the char that specifies the case
  * @l: List characters
- * Return: NULL.
+ * Return: NULL. NULL null
  */
 
 int (*conversion_specifiers(const char *c, int l))(va_list)
