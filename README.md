@@ -16,7 +16,10 @@
 _In this repository you will find a copy about ***Shell*** with any function of the real shell_.
 
 ---
+## Description
+Holberton School Shell (hsh), is a simple program of the line commands. This simple shell recreates basic and some more complex functionalities to result in our own Shell. This shell si developed in the programming language c. This shell takes the keyboard commands and delivers them to the system to be executed. some built-in commands implement: exit, env, help, cd.
 
+---
 ## ¿How to compile?
 
 - _Run that command on your console where the project is located._
