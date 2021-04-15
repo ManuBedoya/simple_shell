@@ -21,11 +21,7 @@ void tokenize(char *line, char **environ, char *filename, int iterator)
 	}
 
 	if (nArgs == 1)
-	{
-		_printf("Entra: %s\n", line);
 		arg[0] = getCommand(line, environ, filename, iterator);
-		_printf("Sale: %s\n", arg[0]);
-	}
 	else
 	{
 		token = strtok(line, " ");
@@ -44,10 +40,7 @@ void tokenize(char *line, char **environ, char *filename, int iterator)
 			exit(EXIT_FAILURE);
 		value = execve(arg[0], arg, environ);
 		if (value == -1)
-		{
-			_printf("Entró: %i\n", value);
 			exit(EXIT_FAILURE);
-		}
 	}
 	wait(&status);
 	free(arg[0]);

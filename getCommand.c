@@ -24,11 +24,11 @@ char *getCommand(char *command, char **environ, char *filename, int iterator)
 	token = strtok(NULL, ":");
 	while (token != NULL)
 	{
-
 		lenToken = _strlen(token);
 		lenCommand = _strlen(command);
-		concatanated = malloc(sizeof(char) * (lenToken + lenCommand + 1));
-		_strcpy(concatanated, token);
+		concatanated = malloc(sizeof(char) * (lenToken + lenCommand + 2));
+		*concatanated = '\0';
+		_strcat(concatanated, token);
 		_strcat(concatanated, "/");
 		_strcat(concatanated, command);
 		if (stat(concatanated, &buf) == 0)
