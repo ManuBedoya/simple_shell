@@ -19,7 +19,6 @@ void tokenize(char *line, char **environ, char *filename, int *iterator)
 		if (line[i] == ' ')
 			nArgs++;
 	}
-
 	if (nArgs == 1)
 		arg[0] = getCommand(line, environ, filename, iterator);
 	else
@@ -38,7 +37,7 @@ void tokenize(char *line, char **environ, char *filename, int *iterator)
 	{
 		if(arg[0] == NULL)
 			exit(EXIT_FAILURE);
-		value = execve(arg[0], arg, NULL);
+		value = execve(arg[0], arg, environ);
 		if (value == -1)
 			exit(EXIT_FAILURE);
 	}

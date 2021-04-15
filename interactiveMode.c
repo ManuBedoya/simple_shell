@@ -20,6 +20,7 @@ void interactiveMode(char **environ, char *filename)
 			free(line);
 			exit(0);
 		}
+		iterator++;
 		if (isBuiltIn(line, environ) == -1)
 			tokenize(line, environ, filename, &iterator);
 		free(line);
