@@ -4,23 +4,27 @@
 *@line: line typed by user
 *@environ: environment
 *@filename: name of the file
-*@iterator: Counted
+*@iterator: counted
 */
 void tokenize(char *line, char **environ, char *filename, int iterator)
 {
 	char *token, *arg[1024];
 	size_t i, nArgs = 1;
-	int value;
+	int value, status;
+	pid_t son;
 
+	line[_strlen(line) - 1] = '\0';
 	for (i = 0; line[i]; i++)
 	{
 		if (line[i] == ' ')
 			nArgs++;
 	}
-	line[_strlen(line) - 1] = '\0';
+
 	if (nArgs == 1)
 	{
+		_printf("Entra: %s\n", line);
 		arg[0] = getCommand(line, environ, filename, iterator);
+		_printf("Sale: %s\n", arg[0]);
 	}
 	else
 	{
@@ -33,10 +37,18 @@ void tokenize(char *line, char **environ, char *filename, int iterator)
 		}
 		arg[0] = getCommand(arg[0], environ, filename, iterator);
 	}
-	value = execve(arg[0], arg, environ);
-	if (value == -1)
+	son = fork();
+	if (son == 0)
 	{
-		free(arg[0]);
-		exit(EXIT_FAILURE);
+		if(arg[0] == NULL)
+			exit(EXIT_FAILURE);
+		value = execve(arg[0], arg, environ);
+		if (value == -1)
+		{
+			_printf("Entró: %i\n", value);
+			exit(EXIT_FAILURE);
+		}
 	}
+	wait(&status);
+	free(arg[0]);
 }
