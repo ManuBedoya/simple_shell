@@ -14,7 +14,7 @@ SIMPLE_SHELL \- Interpreter of commands
 
 .SH DESCRIPTION
 
-Is an intrepeter of commands
+Holberton School Shell (hsh), is a simple program of the line commands. This simple shell recreates basic and some more complex functionalities to result in our own Shell. This shell si developed in the programming language c. This shell takes the keyboard commands and delivers them to the system to be executed. some built-in commands implement: exit, env, help, cd.
 
 .SH RETURN VALUE
 

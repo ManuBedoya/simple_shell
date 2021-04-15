@@ -75,6 +75,17 @@ man ./man_1_simple_shell
 No|Files|Description
 :---:|:---|:---:
 1|[README.md](./README.md)| It contains all the information about the project and all its content.
+2|[AUTHORS](./AUTHORS)| names and emails of colaborators.
+3|[_printf.c](./_printf.c)| Own printf.
+4|[builtins.c](.builtins.c)| have the function of the buit.ins (exit and env)
+5|[getCommand.c](./getCommand.c)| Search the address of a command.
+6|[header.h](./header.h)| header of the _shell
+7|[headerPrintf.h](./headerPrintf.h)| header of the _printf
+8|[interactiveMode.c](./interactiveMode.c)| have the infinite loop and show the propmt
+9|[myFunctions.c](./myFunctions.c)| have string own functions like _strcat _strcpy _strlen.
+10|[putchar_func](./putchar_func)| function to print a character.
+11|[simpleShell.c](./simpleShell.c)| It's the main of the program.
+12|[tokenize.c](./tokenize.c)| It's where separate the arguments and execute the commands.
 
 ---
 
