@@ -36,7 +36,7 @@ void tokenize(char *line, char **environ, char *filename, int *iterator)
 	{
 		if(arg[0] == NULL)
 			exit(EXIT_FAILURE);
-		execve(arg[0], arg, NULL);
+		execve(arg[0], arg, environ);
 		exit(EXIT_FAILURE);
 	}
 	wait(&status);
