@@ -34,7 +34,7 @@ void tokenize(char *line, char **environ, char *filename, int *iterator)
 	son = fork();
 	if (son == 0)
 	{
-		if(arg[0] == NULL)
+		if (arg[0] == NULL)
 			exit(EXIT_FAILURE);
 		execve(arg[0], arg, environ);
 		exit(EXIT_FAILURE);

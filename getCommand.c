@@ -13,12 +13,10 @@ char *getCommand(char *command, char **environ, char *filename, int *iterator)
 	struct stat buf;
 	int lenCommand, lenToken, found = 0, i, j;
 
-
 	for (i = 0; environ[i]; i++)
 		if (environ[i][0] == 'P' && environ[i][1] == 'A')
 			for (j = 0; environ[i][j]; j++)
 				path[j] = environ[i][j];
-
 	token = strtok(path, ":");
 	while (token != NULL)
 	{
@@ -43,12 +41,7 @@ char *getCommand(char *command, char **environ, char *filename, int *iterator)
 		free(concatanated);
 	}
 	if (found == 1)
-	{
 		return (concatanated);
-	}
-	else
-	{
-		_printf("%s: %i: %s: not found\n", filename, *iterator, command);
-		return (NULL);
-	}
+	_printf("%s: %i: %s: not found\n", filename, *iterator, command);
+	return (NULL);
 }
