@@ -8,9 +8,9 @@
 */
 void tokenize(char *line, char **environ, char *filename, int *iterator)
 {
-	char *token, *arg[1024];
+	char *token, *arg[] = {"", NULL};
 	size_t i, nArgs = 1;
-	int value, status;
+	int status;
 	pid_t son;
 
 	line[_strlen(line) - 1] = '\0';
@@ -27,7 +27,6 @@ void tokenize(char *line, char **environ, char *filename, int *iterator)
 		i = 0;
 		while (token != NULL)
 		{
-			arg[i++] = token;
 			token = strtok(NULL, " ");
 		}
 		arg[0] = getCommand(arg[0], environ, filename, iterator);
@@ -37,10 +36,10 @@ void tokenize(char *line, char **environ, char *filename, int *iterator)
 	{
 		if(arg[0] == NULL)
 			exit(EXIT_FAILURE);
-		value = execve(arg[0], arg, environ);
-		if (value == -1)
-			exit(EXIT_FAILURE);
+		execve(arg[0], arg, NULL);
+		exit(EXIT_FAILURE);
 	}
 	wait(&status);
-	free(arg[0]);
+	if (arg[0] != NULL)
+		free(arg[0]);
 }

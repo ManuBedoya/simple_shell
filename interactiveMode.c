@@ -6,7 +6,7 @@
  */
 void interactiveMode(char **environ, char *filename)
 {
-	char *line = NULL;
+	char *line;
 	size_t lineSize;
 	int iterator = 0;
 

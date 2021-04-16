@@ -20,7 +20,6 @@ char *getCommand(char *command, char **environ, char *filename, int *iterator)
 				path[j] = environ[i][j];
 
 	token = strtok(path, ":");
-	token = strtok(NULL, ":");
 	while (token != NULL)
 	{
 		lenToken = _strlen(token);
