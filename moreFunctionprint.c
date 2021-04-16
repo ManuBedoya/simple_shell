@@ -1,4 +1,4 @@
-#include "header.h"
+#include "headerPrintf.h"
 /**
  * sing_char - print single character
  * @c: is the length of the string
